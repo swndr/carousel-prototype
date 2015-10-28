@@ -193,22 +193,42 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <animations/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="backup_button" id="nnD-Oa-IBm">
-                                        <rect key="frame" x="960" y="463" width="320" height="97"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <animations/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TfG-vb-0zV">
-                                        <rect key="frame" x="982" y="503" width="276" height="51"/>
+                                    <view contentMode="scaleToFill" id="V2N-wP-8ff" userLabel="proceedContainer">
+                                        <rect key="frame" x="960" y="453" width="320" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="backup_button" id="nnD-Oa-IBm">
+                                                <rect key="frame" x="0.0" y="9" width="320" height="97"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TfG-vb-0zV">
+                                                <rect key="frame" x="22" y="32" width="276" height="51"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <animations/>
+                                                <connections>
+                                                    <segue destination="6Fo-pa-L2d" kind="modal" animates="NO" id="X6A-Ea-z5z"/>
+                                                </connections>
+                                            </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="O4J-2B-z9l">
+                                                <rect key="frame" x="249" y="8" width="51" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <animations/>
+                                            </switch>
+                                        </subviews>
                                         <animations/>
-                                        <connections>
-                                            <segue destination="6Fo-pa-L2d" kind="modal" animates="NO" id="X6A-Ea-z5z"/>
-                                        </connections>
-                                    </button>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <animations/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" id="Z1o-GM-dVk">
+                                <rect key="frame" x="141" y="517" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <color key="pageIndicatorTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.19523142860000001" green="0.70242159420000005" blue="0.82577730429999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -217,6 +237,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1280" height="568"/>
                     <connections>
+                        <outlet property="pageControl" destination="Z1o-GM-dVk" id="OJr-ba-9h2"/>
+                        <outlet property="proceedContainer" destination="V2N-wP-8ff" id="93R-vb-Dux"/>
                         <outlet property="welcomeButton" destination="TfG-vb-0zV" id="myK-ws-0fS"/>
                         <outlet property="welcomeButtonImage" destination="nnD-Oa-IBm" id="iS2-mE-vIN"/>
                         <outlet property="welcomeScrollView" destination="ggf-Vi-Vem" id="cBH-gu-Gfv"/>
