@@ -18,8 +18,15 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let email = "sam@mail.com"
+    let password = "password"
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.hidesWhenStopped = true
+
         // Look for keyboard opening
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -49,6 +56,49 @@ class SignInViewController: UIViewController {
     
     @IBAction func didPressSignIn(sender: AnyObject) {
         view.endEditing(true)
+        
+        let fields = (emailTextField.text!,passwordTextField.text!)
+        
+        switch fields {
+        case ("",""):
+            let alertController = UIAlertController(title: "Email and password required", message: "Please enter your email address and password", preferredStyle: .Alert)
+            let OK = UIAlertAction(title: "OK", style: .Default) { (action) in
+            }
+            alertController.addAction(OK)
+            presentViewController(alertController, animated: true) {
+            }
+        case ("",_):
+            let alertController = UIAlertController(title: "Email address required", message: "Please enter your email address", preferredStyle: .Alert)
+            let OK = UIAlertAction(title: "OK", style: .Default) { (action) in
+            }
+            alertController.addAction(OK)
+            presentViewController(alertController, animated: true) {
+            }
+        case (_,""):
+            let alertController = UIAlertController(title: "Password required", message: "Please enter your password", preferredStyle: .Alert)
+            let OK = UIAlertAction(title: "OK", style: .Default) { (action) in
+            }
+            alertController.addAction(OK)
+            presentViewController(alertController, animated: true) {
+            }
+        case let (e,p) where e != email || p != password:
+            let alertController = UIAlertController(title: "Sign in failed", message: "Incorrect email address or password", preferredStyle: .Alert)
+            let OK = UIAlertAction(title: "OK", style: .Default) { (action) in
+            }
+            alertController.addAction(OK)
+            activityIndicator.startAnimating()
+            delay(2.0, closure: {
+                self.activityIndicator.stopAnimating()
+                self.presentViewController(alertController, animated: true) {
+                }
+            })
+        default:
+            activityIndicator.startAnimating()
+            delay(2.0, closure: {
+                self.activityIndicator.stopAnimating()
+                self.performSegueWithIdentifier("loginSegue", sender: nil)
+            })
+        }
     }
     
     

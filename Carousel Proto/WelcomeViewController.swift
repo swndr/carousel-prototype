@@ -17,7 +17,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeScrollView.contentSize = CGSize(width: 1280, height: 568)
+        welcomeScrollView.contentSize = CGSize(width: 1280, height: 1.0)
     }
 
     override func didReceiveMemoryWarning() {

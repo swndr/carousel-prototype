@@ -11,16 +11,16 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var settingsScrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsScrollView.contentSize = CGSize(width: 320, height: 695)
     }
     
-    
     @IBAction func didPressCloseButton(sender: AnyObject) {
-        print("closed")
-        // Fix this
-        navigationController?.popToRootViewControllerAnimated(true)
+        navigationController?.dismissViewControllerAnimated(true, completion:{ () -> Void in
+        })
     }
 
     override func didReceiveMemoryWarning() {
