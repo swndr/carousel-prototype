@@ -8,16 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class IntroViewController: UIViewController {
 
+    @IBOutlet weak var introScrollView: UIScrollView!
+    @IBOutlet weak var signInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        introScrollView.contentSize = CGSize(width: 320, height: 1136)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
