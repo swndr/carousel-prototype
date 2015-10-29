@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     
     // Fade out paging indicator, fade in button
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        var scrollX = Int(round(scrollView.contentOffset.x))
+        let scrollX = Int(round(scrollView.contentOffset.x))
         if scrollX > 640 {
             pageControl.alpha = convertValue(CGFloat(scrollX), r1Min: 640.00, r1Max: 860.00, r2Min: 1.0, r2Max: 0.0)
             proceedContainer.alpha = convertValue(CGFloat(scrollX), r1Min: 860.00, r1Max: 960.00, r2Min: 0.0, r2Max: 1.0)
@@ -36,7 +36,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     
     // Paging control
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        var page = Int(round(scrollView.contentOffset.x / 320))
+        let page = Int(round(scrollView.contentOffset.x / 320))
         pageControl.currentPage = page
     }
 

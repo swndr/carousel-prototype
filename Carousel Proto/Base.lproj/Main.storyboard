@@ -30,6 +30,44 @@
                                             <segue destination="myO-53-Whj" kind="push" id="cAq-SO-FWL"/>
                                         </connections>
                                     </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="intro_tile5" id="3yT-SU-M9c">
+                                        <rect key="frame" x="8" y="454" width="76" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <animations/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="intro_tile6" id="lnh-V9-Rg0">
+                                        <rect key="frame" x="86" y="448" width="76" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <animations/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="intro_tile3" id="jJB-xs-YeX">
+                                        <rect key="frame" x="180" y="448" width="76" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <animations/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="intro_tile4" id="2bX-Sx-jKu">
+                                        <rect key="frame" x="134" y="517" width="76" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <animations/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="intro_tile2" id="v3F-LT-GSz">
+                                        <rect key="frame" x="224" y="517" width="76" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <animations/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="intro_tile1" id="xxA-jd-COZ">
+                                        <rect key="frame" x="0.0" y="497" width="153" height="152"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <animations/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DRK-2r-vXG">
+                                        <rect key="frame" x="80" y="296" width="161" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                             </scrollView>
@@ -44,6 +82,12 @@
                     <connections>
                         <outlet property="introScrollView" destination="mfB-ai-bZd" id="w8J-Sc-bB5"/>
                         <outlet property="signInButton" destination="yzR-4z-obU" id="UBK-ex-FJS"/>
+                        <outlet property="tile1" destination="xxA-jd-COZ" id="Kmg-qv-Id6"/>
+                        <outlet property="tile2" destination="v3F-LT-GSz" id="Zwr-3A-ZDW"/>
+                        <outlet property="tile3" destination="jJB-xs-YeX" id="rop-ZV-Xun"/>
+                        <outlet property="tile4" destination="2bX-Sx-jKu" id="3YU-JB-QYw"/>
+                        <outlet property="tile5" destination="3yT-SU-M9c" id="xu9-et-rtk"/>
+                        <outlet property="tile6" destination="lnh-V9-Rg0" id="Lmg-w6-etw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -98,7 +142,7 @@
                                                 <rect key="frame" x="20" y="133" width="280" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <animations/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                 <connections>
                                                     <action selector="didPressNextOnEmailField:" destination="myO-53-Whj" eventType="editingDidEndOnExit" id="mwz-UQ-MvO"/>
@@ -108,7 +152,7 @@
                                                 <rect key="frame" x="20" y="177" width="280" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <animations/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
                                                 <connections>
                                                     <action selector="didPressDoneOnPasswordField:" destination="myO-53-Whj" eventType="editingDidEndOnExit" id="aoy-9Z-HKE"/>
@@ -470,6 +514,12 @@
         <image name="feed" width="320" height="1564"/>
         <image name="feed_nav" width="320" height="65"/>
         <image name="intro" width="320" height="1136"/>
+        <image name="intro_tile1" width="153" height="152"/>
+        <image name="intro_tile2" width="76" height="75"/>
+        <image name="intro_tile3" width="76" height="76"/>
+        <image name="intro_tile4" width="76" height="76"/>
+        <image name="intro_tile5" width="76" height="75"/>
+        <image name="intro_tile6" width="76" height="75"/>
         <image name="login_form" width="320" height="113"/>
         <image name="login_text" width="320" height="70"/>
         <image name="scrubber" width="320" height="36"/>
@@ -483,6 +533,6 @@
         <image name="welcome4" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BxT-FI-jD6"/>
+        <segue reference="cAq-SO-FWL"/>
     </inferredMetricsTieBreakers>
 </document>
