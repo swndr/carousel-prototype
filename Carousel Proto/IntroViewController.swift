@@ -110,6 +110,10 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         tile6.transform = CGAffineTransformScale(tile6.transform, t6s, t6s)
         
     }
+    
+    @IBAction func returnToIntro(segue:UIStoryboardSegue) {
+        // Issue: after signing out, this unwind will be modal not push
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

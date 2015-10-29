@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         
         let signOutAction = UIAlertAction(title: "Sign Out", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.performSegueWithIdentifier("returnToSignIn", sender: nil)
+            self.performSegueWithIdentifier("returnToWelcome", sender: nil)
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {

@@ -179,7 +179,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <connections>
-                                    <action selector="didPressBackButton:" destination="myO-53-Whj" eventType="touchUpInside" id="Ixt-3e-ucQ"/>
+                                    <segue destination="8Mr-yZ-TdY" kind="unwind" unwindAction="returnToIntro:" id="UUt-t2-L3H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -200,6 +200,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPF-wb-pia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8Mr-yZ-TdY" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="pyC-4a-Inu">
                     <connections>
                         <action selector="didTapScreen:" destination="myO-53-Whj" id="gJU-ZY-zMQ"/>
@@ -408,7 +409,7 @@
                         <outlet property="closeButton" destination="SbS-hj-iXh" id="p7Q-XK-GQg"/>
                         <outlet property="settingsScrollView" destination="AFM-Qc-2l0" id="tjw-sD-LmJ"/>
                         <outlet property="signOutButton" destination="bsV-rN-IYj" id="4fw-J5-A2R"/>
-                        <segue destination="myO-53-Whj" kind="modal" identifier="returnToSignIn" modalTransitionStyle="crossDissolve" id="BxT-FI-jD6"/>
+                        <segue destination="Fzo-Nq-Dud" kind="modal" identifier="returnToWelcome" modalTransitionStyle="crossDissolve" id="REC-rA-ORX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNB-9d-6vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -532,7 +533,4 @@
         <image name="welcome3" width="320" height="568"/>
         <image name="welcome4" width="320" height="568"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="cAq-SO-FWL"/>
-    </inferredMetricsTieBreakers>
 </document>

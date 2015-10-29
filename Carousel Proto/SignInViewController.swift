@@ -118,10 +118,6 @@ class SignInViewController: UIViewController {
     @IBAction func didTapScreen(sender: AnyObject) {
         view.endEditing(true)
     }
-    
-    @IBAction func didPressBackButton(sender: AnyObject) {
-        navigationController?.popToRootViewControllerAnimated(true)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
