@@ -22,6 +22,5 @@ class IntroViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-
 }
 

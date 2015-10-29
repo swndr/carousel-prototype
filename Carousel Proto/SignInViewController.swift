@@ -32,15 +32,29 @@ class SignInViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
     }
     
+    override func viewWillAppear(animated: Bool) {
+        signInScrollView.alpha = 0.0
+        signInScrollView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(0.15) { () -> Void in
+            self.signInScrollView.alpha = 1.0
+            self.signInScrollView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+        }
+    }
+    
     // Scroll up when keyboard opens
     func keyboardWillShow(notification: NSNotification) {
         self.signInScrollView.contentOffset.y = 100
+        self.signInScrollView.scrollEnabled = true
 
     }
     
     // Scroll down when keyboard closes
     func keyboardWillHide(notification: NSNotification) {
         self.signInScrollView.contentOffset.y = 0
+        self.signInScrollView.scrollEnabled = false
     }
     
     // Tap Next in Email field
@@ -101,9 +115,12 @@ class SignInViewController: UIViewController {
         }
     }
     
-    
     @IBAction func didTapScreen(sender: AnyObject) {
         view.endEditing(true)
+    }
+    
+    @IBAction func didPressBackButton(sender: AnyObject) {
+        navigationController?.popToRootViewControllerAnimated(true)
     }
 
     override func didReceiveMemoryWarning() {
