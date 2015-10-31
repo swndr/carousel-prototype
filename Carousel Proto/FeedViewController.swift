@@ -13,7 +13,10 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var feedScrollView: UIScrollView!
     @IBOutlet weak var scrubberScrollView: UIScrollView!
     
-    @IBOutlet weak var blackBackgroundImageView: UIImageView!
+    @IBOutlet weak var blackBackground: UIView!
+    @IBOutlet weak var blackHeader: UIImageView!
+    @IBOutlet weak var blackFooter: UIImageView!
+    
     var currentBackgroundColor = "light"
     
     @IBOutlet weak var selectablePhoto: UIImageView!
@@ -25,7 +28,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        blackBackgroundImageView.alpha = 0
+        blackBackground.alpha = 0
         
         tapPhoto = UITapGestureRecognizer(target: self, action: "didTapPhoto:")
         selectablePhoto.userInteractionEnabled = true
@@ -59,10 +62,10 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     func didTapPhoto(tap:UITapGestureRecognizer) {
         
         // Getting the image position relative to window
-        let imagePos: CGPoint = self.selectablePhoto.convertPoint(self.selectablePhoto.bounds.origin, toView: self.blackBackgroundImageView)
+        let imagePos: CGPoint = self.selectablePhoto.convertPoint(self.selectablePhoto.bounds.origin, toView: self.blackBackground)
         
         self.selectablePhoto.removeFromSuperview()
-        self.blackBackgroundImageView.addSubview(selectablePhoto)
+        self.blackBackground.addSubview(selectablePhoto)
         self.selectablePhoto.frame.origin = imagePos
         
         self.selectablePhoto.removeGestureRecognizer(tap)
@@ -73,7 +76,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         preferredStatusBarStyle()
         setNeedsStatusBarAppearanceUpdate()
         UIView.animateWithDuration(0.5) { () -> Void in
-            self.blackBackgroundImageView.alpha = 1
+            self.blackBackground.alpha = 1
         }
         
         let options: UIViewAnimationOptions = .CurveEaseInOut
@@ -94,11 +97,13 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         if pan.state == UIGestureRecognizerState.Began {
             
             self.selectablePhoto.center = location
+            self.blackHeader.hidden = true
+            self.blackFooter.hidden = true
             
         } else if pan.state == UIGestureRecognizerState.Changed {
             
             self.selectablePhoto.center = location
-            self.blackBackgroundImageView.alpha = convertValue(location.y, r1Min: self.view.center.y + 100, r1Max: self.view.frame.height - 100, r2Min: 1.0, r2Max: 0.0)
+            self.blackBackground.alpha = convertValue(location.y, r1Min: self.view.center.y + 100, r1Max: self.view.frame.height - 100, r2Min: 1.0, r2Max: 0.0)
             
         } else if pan.state == UIGestureRecognizerState.Ended {
             
@@ -118,7 +123,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 setNeedsStatusBarAppearanceUpdate()
                 
                 UIView.animateWithDuration(0.5) { () -> Void in
-                    self.blackBackgroundImageView.alpha = 0
+                    self.blackBackground.alpha = 0
                 }
                 
                 let options: UIViewAnimationOptions = .CurveEaseInOut
@@ -130,8 +135,11 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
             
             } else {
                 
+                self.blackHeader.hidden = false
+                self.blackFooter.hidden = false
+                
                 UIView.animateWithDuration(0.2) { () -> Void in
-                    self.blackBackgroundImageView.alpha = 1
+                    self.blackBackground.alpha = 1
                 }
                 
                 // Bounce back to center
