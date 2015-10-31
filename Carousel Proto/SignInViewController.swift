@@ -108,9 +108,16 @@ class SignInViewController: UIViewController {
             })
         default:
             activityIndicator.startAnimating()
-            delay(2.0, closure: {
+            delay(1.0, closure: {
                 self.activityIndicator.stopAnimating()
-                self.performSegueWithIdentifier("loginSegue", sender: nil)
+                let alertController = UIAlertController(title: "Signing in...", message: nil, preferredStyle: .Alert)
+                self.presentViewController(alertController, animated: true) {
+                    delay(1.5, closure: {
+                        alertController.dismissViewControllerAnimated(true, completion: { () -> Void in
+                            self.performSegueWithIdentifier("loginSegue", sender: nil)
+                        })
+                    })
+                }
             })
         }
     }

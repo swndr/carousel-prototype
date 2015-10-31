@@ -18,7 +18,8 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         feedScrollView.contentSize = CGSize(width: 320, height: 1628)
         scrubberScrollView.contentSize = CGSize(width: 840, height: 36)
-        scrubberScrollView.contentOffset.x = 0
+        feedScrollView.contentOffset.y = 1060
+        scrubberScrollView.contentOffset.x = 520
         
         feedScrollView.delegate = self
         scrubberScrollView.delegate = self
@@ -35,9 +36,6 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
