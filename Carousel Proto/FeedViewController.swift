@@ -10,6 +10,8 @@ import UIKit
 
 class FeedViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var viewContainer: UIView!
+    
     @IBOutlet weak var feedScrollView: UIScrollView!
     @IBOutlet weak var scrubberScrollView: UIScrollView!
     
@@ -85,7 +87,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
             self.selectablePhoto.transform = CGAffineTransformMakeScale(scale, scale)
             self.selectablePhoto.center = self.view.center
             }, completion: { finished in
-            
+            self.viewContainer.transform = CGAffineTransformMakeScale(0.9, 0.9)
         })
 
     }
@@ -102,8 +104,12 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
             
         } else if pan.state == UIGestureRecognizerState.Changed {
             
+            var containerScale:CGFloat = 0.8
             self.selectablePhoto.center = location
             self.blackBackground.alpha = convertValue(location.y, r1Min: self.view.center.y + 100, r1Max: self.view.frame.height - 100, r2Min: 1.0, r2Max: 0.0)
+            containerScale = convertValue(location.y, r1Min: self.view.center.y + 100, r1Max: self.view.frame.height - 100, r2Min: 0.9, r2Max: 1.0)
+
+            self.viewContainer.transform = CGAffineTransformMakeScale(containerScale, containerScale)
             
         } else if pan.state == UIGestureRecognizerState.Ended {
             
@@ -122,8 +128,9 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 preferredStatusBarStyle()
                 setNeedsStatusBarAppearanceUpdate()
                 
-                UIView.animateWithDuration(0.5) { () -> Void in
+                UIView.animateWithDuration(0.3) { () -> Void in
                     self.blackBackground.alpha = 0
+                    self.viewContainer.transform = CGAffineTransformMakeScale(1.0, 1.0)
                 }
                 
                 let options: UIViewAnimationOptions = .CurveEaseInOut
